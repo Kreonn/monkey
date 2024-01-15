@@ -146,6 +146,28 @@ func TestConditionsBooleansReturns(t *testing.T) {
 	runLexerTests(t, l, tests)
 }
 
+func TestTwoCharsOperators(t *testing.T) {
+	input := `10 == 10;
+10 != 9;
+`
+
+	tests := []matchTest{
+		{token.INT, "10"},
+		{token.EQUALS, "=="},
+		{token.INT, "10"},
+		{token.SEMICOLON, ";"},
+		{token.INT, "10"},
+		{token.DIFFERS, "!="},
+		{token.INT, "9"},
+		{token.SEMICOLON, ";"},
+		{token.EOF, ""},
+	}
+
+	l := lexer.New(input)
+
+	runLexerTests(t, l, tests)
+}
+
 func runLexerTests(t *testing.T, lex *lexer.Lexer, tests []matchTest) {
 	for i, tt := range tests {
 		tok := lex.NextToken()

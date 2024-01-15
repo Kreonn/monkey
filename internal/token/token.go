@@ -23,6 +23,9 @@ const (
 	ASTER  = "*"
 	SLASH  = "/"
 
+	EQUALS  = "=="
+	DIFFERS = "!="
+
 	LT = "<"
 	GT = ">"
 
