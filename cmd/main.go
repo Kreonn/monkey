@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
 
-func main()  {
-	fmt.Println("Hello, World!")
+	"github.com/Kreonn/monkey/internal/repl"
+)
+
+func main() {
+	fmt.Println("Welcome in the Monkey REPL")
+	repl.Start(os.Stdin, os.Stdout)
 }
